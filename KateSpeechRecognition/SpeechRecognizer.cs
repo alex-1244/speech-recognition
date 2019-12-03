@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Speech.V1;
 using Grpc.Auth;
@@ -35,7 +36,7 @@ namespace KateSpeechRecognition
 			return response.Result.Results
 				.Select(x=> x.Alternatives.First().Transcript)
 				.Aggregate((x, y) =>
-					$"{x} {y}");
+					$"{x} {Environment.NewLine}{y}");
 		}
 	}
 }

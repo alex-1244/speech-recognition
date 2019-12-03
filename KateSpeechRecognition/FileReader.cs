@@ -18,6 +18,7 @@ namespace KateSpeechRecognition
 
 			var now = DateTime.UtcNow;
 			_folder = $"{now.Day}_{now.Month}_{now.Year}_{now.Hour}_{now.Minute}_{now.Second}";
+			Directory.CreateDirectory($"{_path}/{_folder}");
 		}
 
 		public void Move(string file)
